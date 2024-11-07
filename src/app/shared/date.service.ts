@@ -8,4 +8,9 @@ import {BehaviorSubject} from "rxjs";
 
 export class DateService {
   public date: BehaviorSubject<Moment> = new BehaviorSubject<Moment>(moment());
+
+  changeMonth(dir: number) {
+    const value = this.date.value.add(dir, 'month');
+    this.date.next(value)
+  }
 }
